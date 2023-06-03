@@ -1,5 +1,6 @@
-# Matchmaker
- A simple but  working matchmaker for Fortnite written in Rust with spaghetti code.
+![](https://cdn.nexusfn.net/file/2023/06/Rustmaker.png)
+
+**A simple but  working matchmaker for Fortnite written in Rust with spaghetti code.**
 
 Maybe I will rewrite it in the future, but for now it works, but there will probably be some small updates.
 
