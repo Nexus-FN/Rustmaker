@@ -6,6 +6,7 @@ use std::time::Duration;
 use md5;
 use chrono::Utc;
 use dotenv::dotenv;
+use uuid::Uuid;
 
 #[tokio::main]
 async fn main() {
@@ -120,10 +121,6 @@ async fn main() {
                 let _ = responder.send(simple_websockets::Message::Text(message5));
 
                 clients.insert(client_id, responder);
-
-                tokio::time::sleep(Duration::from_secs(5)).await;
-
-                Responder::close(&clients[&client_id]);
             },
             Event::Disconnect(client_id) => {
                 clients.remove(&client_id);
@@ -134,6 +131,10 @@ async fn main() {
         }
 
     }
+}
+
+fn make_id() -> String {
+    Uuid::new_v4().to_string()
 }
 
 fn calculate_id() -> String {
